@@ -24,9 +24,11 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-gymDark-950/90 backdrop-blur-md border-b border-white/5 py-4' 
-        : 'bg-transparent py-6'
+      isOpen
+        ? 'bg-gymDark-950 border-b border-white/5 py-4'
+        : isScrolled 
+          ? 'bg-gymDark-950/90 backdrop-blur-md border-b border-white/5 py-4' 
+          : 'bg-transparent py-6'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
@@ -78,7 +80,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Drawer */}
-      <div className={`lg:hidden fixed inset-0 top-[72px] z-40 bg-gymDark-950 backdrop-blur-lg border-t border-white/5 transition-all duration-300 ease-in-out ${
+      <div className={`lg:hidden fixed inset-0 top-[72px] z-40 bg-gymDark-950 border-t border-white/5 transition-all duration-200 ease-out ${
         isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
       }`}>
         <div className="px-6 py-8 flex flex-col space-y-6">
